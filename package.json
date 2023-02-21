@@ -1,6 +1,6 @@
 {
   "name": "cm-search-replace",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Implements the search and replace function of CodeMirror",
   "main": "src/search.js",
   "scripts": {
