@@ -38,8 +38,17 @@
       },
 
       "Cmd-F": function () {
-        if (!Search) Search = new SearchBox(cm);
-        Search.show();
+        var cmEle = cm.display.wrapper;
+        if (!Search || !cmEle.parentElement.contains(Search.searchBox)) {
+          Search = new SearchBox(cm);
+        }
+        var isReplace = false;
+        if (cmEle.parentElement.querySelector("[action=toggleReplace]")) {
+          isReplace =
+            cmEle.parentElement.querySelector("[action=toggleReplace]")
+              .innerText === "-";
+        }
+        Search.show(cm.getSelection(), isReplace);
       },
     });
   });
